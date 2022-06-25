@@ -49,6 +49,21 @@ class YourAppConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'apps.your_app'
 
+
+```
+
+## เพิ่ม your_app ใน project settings.py
+
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'apps.your_app'#----------
+]
 ```
 ## run django server
 ```bash
