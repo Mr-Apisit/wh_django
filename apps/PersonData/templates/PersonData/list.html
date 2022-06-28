@@ -1,0 +1,31 @@
+
+{% extends 'base.html' %}
+{%load static%}
+ {% block title%}{{block.super}} รายชื่อ ขรก.
+{%endblock%} {% block content %}
+<link rel="stylesheet" href="{% static 'css/head_list.css' %}" />
+
+<p>Move the mouse over the table rows to see the effect.</p>
+<table>
+  <tr>
+    <th>โปรไฟล์</th>
+    <th>ชื่อ-สกุล</th>
+    <th>อี-เมล์ ทอ.</th>
+    <th>ตำแหน่งงาน</th>
+    <th>เบอร์โทรส่วนตัว</th>
+  </tr>
+  {% for person in persons %}
+  <tr>
+    {% if person.sex == "male"%}
+    <td><img src={% static 'images/male.png'%} class="avatar"></img></td>
+    {% elif person.sex == "female" %}
+    <td><img src={% static 'images/female.png'%} class="avatar"></img></td>
+    {%endif %}
+    <td>{{ person.full_name }}</td>
+    <td>{{ person.email}}</td>
+    <td>{{ person.position}}</td>
+    <td>{{ person.mobile}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{%endblock%}
